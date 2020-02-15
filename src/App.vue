@@ -8,11 +8,17 @@
     <div class="product">
       <div class="row">
         <div class="column left">
-            <img :title="image" :alt="imagdesc" v-bind:src="image" />
+            <img :title="image" v-bind:src="image" />
             <!-- <img src="./images/img1.jpg"> -->
         </div>
         <div class="column right">
-          {{ product }}
+          <div class="product-info">
+            <h1>{{ product }}</h1>
+            <p v-if="inventory > 10">In Stock</p>
+            <p v-else-if="inventory < 10 && inventory > 0 ">Almost Sold Out</p>
+            <p v-else>Out of Stock </p>
+            <p v-show="onSale">ON Sale</p>
+          </div>
         </div>
       </div>
     </div>
@@ -30,8 +36,10 @@ export default {
   // },
   data() {
     return {
-      product: 'dress',
-      image: '/img/img1.bb990836.jpg'
+      product: 'Dress',
+      image: '/img/img1.bb990836.jpg',
+      inventory: 0,
+      onSale: true
     }
   }
 
