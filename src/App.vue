@@ -1,13 +1,28 @@
 <template>
+<div>
+  <div class="navbar">
+  </div>
+
   <div id="app">
     <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
-    {{ product }}
+    <div class="product">
+      <div class="row">
+        <div class="column left">
+            <img :title="image" :alt="imagdesc" v-bind:src="image" />
+            <!-- <img src="./images/img1.jpg"> -->
+        </div>
+        <div class="column right">
+          {{ product }}
+        </div>
+      </div>
+    </div>
+  </div>
   </div>
 </template>
 
 <script>
 // import HelloWorld from './components/HelloWorld.vue'
-
+import './styles.css'
 export default {
   name: 'App',
   // components: {
@@ -15,20 +30,11 @@ export default {
   // },
   data() {
     return {
-      product: 'dress'
+      product: 'dress',
+      image: '/img/img1.bb990836.jpg'
     }
   }
 
 }
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
