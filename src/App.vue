@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
-    My first project
+    {{ product }}
   </div>
 </template>
 
@@ -12,7 +12,13 @@ export default {
   name: 'App',
   // components: {
   //   HelloWorld
-  // }
+  // },
+  data() {
+    return {
+      product: 'dress'
+    }
+  }
+
 }
 </script>
 
