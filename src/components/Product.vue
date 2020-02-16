@@ -37,12 +37,7 @@
             </ul>
 
             <div>
-              <button :disabled="inventory <= 0" v-on:click="addToCart">Add to cart</button>
-              <div class="cart">
-                Cart: {{cart}}
-                <button v-on:click="increaseProduct" style="pdding:5px;margin:5px">+</button>
-                <button v-on:click="decreaseProduct" style="pdding:5px;margin:5px">-</button>
-              </div>
+              <button :disabled="inventory <= 0" v-on:click="addToCart">Add to cart</button>             
             </div>
           </div>
         </div>
@@ -66,7 +61,7 @@ export default {
       welcomeMessage: 'Welcome to',
       product: 'Dress',
       image: '/img/img1.bb990836.jpg',
-      inventory: 0,
+      inventory: 20,
       //onSale: true,
       textdecoration: 'line',
       details: ["80% cotton","20% polyester","gender-neutral"],
@@ -88,24 +83,15 @@ export default {
                 variantImage:"/img/img20.1d566e03.jpg"
               }
             ],
-    sizes: ['xs','x','s','m','l','xl'],
-    cart:0
+    sizes: ['xs','x','s','m','l','xl']
     }
   },
   methods: {
     addToCart() {
-      alert("Added into cart")
+       this.$emit('add-to-cart');
     },
     updateProduct(variantImage) {
       this.image = variantImage
-    },
-    increaseProduct() {
-      this.cart +=1
-    },
-    decreaseProduct() {
-      if(this.cart > 0) {
-      this.cart -=1
-      }
     }
   },
   computed: {
