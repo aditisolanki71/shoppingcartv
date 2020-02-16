@@ -66,6 +66,7 @@ export default {
   // },
   data() {
     return {
+      welcomeMessage: 'Welcome to',
       product: 'Dress',
       image: '/img/img1.bb990836.jpg',
       inventory: 0,
@@ -108,6 +109,11 @@ export default {
       if(this.cart > 0) {
       this.cart -=1
       }
+    }
+  },
+  computed: {
+    title() {
+      return this.welcomeMessage + " " + this.title
     }
   }
 
