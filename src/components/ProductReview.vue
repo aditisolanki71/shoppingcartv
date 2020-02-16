@@ -1,6 +1,14 @@
 <template>
     <div>
         <form class="review-form" @submit.prevent="onSubmit">
+            <p v-if="errors.length">
+                <b>Please Correct the Following Error:</b>
+                <ul>
+                    <li v-for="(error,index) in errors" :key="index">
+                        {{error}}
+                    </li>
+                </ul>
+            </p>
             <p>
                 <label for="name">Name: </label>
                 <input id="name" v-model="name"/>
@@ -8,7 +16,7 @@
 
             <p>
                 <label for="review">Review: </label>
-                <textarea id="review" v-model="review" required></textarea>
+                <textarea id="review" v-model="review"></textarea>
             </p>
 
             <p>
@@ -35,12 +43,14 @@ export default {
         return {
             name: null,
             review: null,
-            rating: null
+            rating: null,
+            errors: []
         }
     },
     methods: {
         onSubmit() {
-            let productReview ={
+            if(this.name && this.review && this.rating) {
+                let productReview ={
                 name: this.name,
                 review: this.review,
                 rating: this.rating
@@ -49,6 +59,19 @@ export default {
             this.name = null
             this.review = null
             this.rating = null
+            }
+            else {
+                if(!this.name) {
+                    this.errors.push("Name is Required")
+                }
+                 if(!this.rating) {
+                    this.errors.push("Rating is Required")
+                }
+                 if(!this.Review) {
+                    this.errors.push("Review is Required")
+                }
+            }
+            
         }
     }
 }
