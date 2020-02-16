@@ -46,4 +46,11 @@
       float:left;
       text-align: left;
   }
+  .colorbox {
+      height:30px;
+      width:50px;
+      border:1px solid lightgray;
+      margin: 5px;
+      display: inline-block;
+  }
   
