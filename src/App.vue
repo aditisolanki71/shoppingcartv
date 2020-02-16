@@ -6,8 +6,8 @@
   <div id="app">
     <div class="cart">
       Cart: {{cart}}
-      <!-- <button v-on:click="increaseProduct" style="pdding:5px;margin:5px">+</button>
-      <button v-on:click="decreaseProduct" style="pdding:5px;margin:5px">-</button> -->
+      <!-- <button v-on:click="increaseProduct" style="pdding:5px;margin:5px">+</button> -->
+      <button v-on:click="decreaseProduct" style="pdding:5px;margin:5px">-</button>
     </div>
     <Product :premium="premium" @add-to-cart="updateCart"></Product>
     <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
