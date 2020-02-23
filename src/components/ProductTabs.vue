@@ -9,18 +9,18 @@
     </span>
        <div v-show="selectedTab === 'Reviews'"> 
                 <p v-if="reviews.length <= 0">There is no reviews yet.</p>
-            <ul>
-                <li v-for="(review,index) in reviews" :key="index">
-                  <p>Name: {{review.name}}</p>
-                  <p>Rating: {{review.rating}} </p>
-                  <p>Review: {{review.review}}</p>
-                </li>
-            </ul>
-            </div>
-            <ProductReview 
-                v-show = "selectedTab === 'Make a Review'" 
-                @review-sumitted="addReview">
-            </ProductReview>
+                <ul>
+                    <li v-for="(review,index) in reviews" :key="index">
+                    <p>Name: {{review.name}}</p>
+                    <p>Rating: {{review.rating}} </p>
+                    <p>Review: {{review.review}}</p>
+                    </li>
+                </ul>
+        </div>
+        <ProductReview 
+            v-show = "selectedTab === 'Make a Review'" 
+            @review-sumitted="addReview">
+        </ProductReview>
             
 </div>    
 </template>

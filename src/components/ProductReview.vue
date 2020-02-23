@@ -56,9 +56,7 @@ export default {
                 rating: this.rating
             }
             this.$emit('review-sumitted',productReview)
-            this.name = null
-            this.review = null
-            this.rating = null
+            alert("Reviews Added Successfullty....")
             }
             else {
                 if(!this.name) {
@@ -71,7 +69,9 @@ export default {
                     this.errors.push("Review is Required")
                 }
             }
-            
+            this.name = null
+            this.review = null
+            this.rating = null
         }
     }
 }
