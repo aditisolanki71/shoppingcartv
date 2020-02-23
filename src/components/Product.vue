@@ -40,19 +40,8 @@
               <button :disabled="inventory <= 0" v-on:click="addToCart">Add to cart</button>             
             </div>
 
-            <div>
-                <h2>Reviews</h2>
-                <p v-if="reviews.length <= 0">There is no reviews yet.</p>
-
-            <ul>
-                <li v-for="(review,index) in reviews" :key="index">
-                  <p>Name: {{review.name}}</p>
-                  <p>Rating: {{review.rating}} </p>
-                  <p>Review: {{review.review}}</p>
-                </li>
-            </ul>
-            </div>
-            <ProductReview @review-sumitted="addReview"></ProductReview>
+            <ProductTabs :reviews=reviews></ProductTabs>
+       
           </div>
         </div>
       </div>
@@ -62,10 +51,11 @@
     </div>
 </template>
 <script>
-import ProductReview from './ProductReview'
+
+import ProductTabs from './ProductTabs'
 export default {
     name: 'Product',
-    components: {ProductReview},
+    components: {ProductTabs},
     props: {
         premium: {
             type: Boolean,
@@ -100,7 +90,7 @@ export default {
               }
             ],
     sizes: ['xs','x','s','m','l','xl'],
-    reviews: []
+                reviews: []
     }
   },
   methods: {
@@ -110,9 +100,7 @@ export default {
     updateProduct(variantImage) {
       this.image = variantImage
     },
-    addReview(productReview) {
-        this.reviews.push(productReview)
-    }
+  
   },
   computed: {
     title() {
